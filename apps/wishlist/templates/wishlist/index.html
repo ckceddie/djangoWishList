@@ -1,160 +1,192 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
-        .frame_main{
-          width: 800px;
-          margin: 10px auto 0px auto;
-
-          /* text-align:center; */
-        }
-        .frame_error{
-          /* width: 800px;
-          margin: 10px; */
-          display: block;
-          color: red;
-          font-size: 9pt;
-        }
-        .frame_banner{
-          margin:10px;
-        }
-        .frame_menu{
-          text-align: right;
-        }
-        .frame_left{
-          width: 350px;
-          padding : 5px;
-          display: inline-block;
-          vertical-align: top;
-
-        }
-        .frame_right{
-          width: 350px;
-          padding : 5px;
-          display: inline-block;
-          vertical-align: top;
-        }
-        .pure-table{
-          border: 0px;
-
-
-        }
-        .pure-table td{
-          border:0px;
-          width:120px;
-          font-size: 12px;
-        }
-
-        h5{
-          margin:0px;
-        }
-        .no_space{
-          margin:0px 0px 0px 0px;
-          text-align: center;
-        }
-
+        .red{
+            color: red;
+        } 
+    
     </style>
-
-  <head>
-    <meta charset="utf-8">
-    <title> Login / Registration </title>
-  </head>
-  <body>
-    <div class="frame_main">
-      <div class="frame_menu">
-        <!-- <a href="#">home</a> || <a href="Logout"></a> -->
-      </div>
-      <div class="frame_banner">
-         <h2>Welcome !</h2>
-      </div>
-      <div class="frame_error">
-        <ul>
-          {% for error in errors %}
-          <li>{{error}}</li>
-          {% endfor%}
-        </ul>
-      </div>
-        <div class="frame_left">
-          <fieldset>
-            <legend> Register </legend>
-              <table class="pure-table">
-                <form action="register" method="post">
-                  {% csrf_token %}
-                  <tr>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="name" value=""> </td>
-                  </tr>
-                  <tr>
-                    <td>Username</td>
-                    <td><input type="text" name="username" value=""> </td>
-                  </tr>
-                  <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" value=""></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                  </tr>
-                </table>
-                <table>
-                  <tr>
-                    <h5  class="no_space">* Password should be at least 8 characters</h5>
-                  </tr>
-
-                </table>
-                <table class="pure-table">
-
-                  <tr>
-                    <td>Confirm PW</td>
-                    <td><input type="password" name="re-password" value=""> </td>
-                  </tr>
-                  <tr>
-                    <td>Date Hired</td>
-                    <td><input type="date" name="dateHired" value=""> </td>
-                  </tr>
-                  <tr>
-                  <td></td>
-                  <td><input type="submit" value="Register"> </td>
-                </tr>
-              </form>
-              </table>
-          </fieldset>
-        </div>
-        <div class="frame_right">
-          <fieldset>
-            <legend> Login </legend>
-              <table class="pure-table">
-                <form action="login" method="post">
-                  {% csrf_token %}
-                  <tr>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Username</td>
-                    <td><input type="text" name="username" value=""> </td>
-                  </tr>
-                  <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" value=""> </td>
-                  </tr>
-                  <tr>
-                  <tr>
-                  <td></td>
-                  <td><input type="submit" value="Login"> </td>
-                </tr>
-              </form>
-              </table>
-          </fieldset>
-        </div>
+    <title>Furniture List</title>
+</head>
+<body class="container">
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td width="3%"></td>
+              <td width="22%">photo</td>
+              <td width="42%">Item</td>
+              <td width="9%">description</td>
+              <td width="11%">Original Price</td>
+              <td width="8%">sale price</td>
+              <td width="5%"></td>
+          </tr>
+        </thead>
+        <tbody>
+             <tr>
+                <td>1</td>
+                <td><div align="center"><a href="https://www.arlo.com/en-us/images/Arlov2/ProductPages/ArloPro2/6-camera-arlo-pro-2.png" target="_blank"> <img src="https://www.arlo.com/en-us/images/Arlov2/ProductPages/ArloPro2/6-camera-arlo-pro-2.png
+                    " width="200px"><br>
+                [click to Enlarge Photo]</a>
+                </div>
+                <td>[ Home Security ] 
+                        <br>Arlo Pro 2 Smart Security System with 6 Cameras (VMS4630P)
+                        <br>90% new - Purchased on May 2018                    </td>
+                    <td><a href="https://www.arlo.com/en-us/products/arlo-pro-2/default.aspx">Click here</a></td>
+                    <td>USD 1,099.99</td>
+                    <td class="red">USD 399</td>
 
 
-    </div>
+                    
+                    <td width="5%">  <input type="checkbox"></td>
+          </tr>
+ 
+                <tr>
+                        <td>2</td>
+                        <td><div align="center"><a href="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6166/6166973_sd.jpg;maxHeight=640;maxWidth=550" 
+                            target="_blank"> <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6166/6166973_sd.jpg;maxHeight=640;maxWidth=550
+                            " width="200px"><br>
+                        [click to Enlarge Photo]</a> </div></td>
+                            <td>[ Television ]
+                                <br>Samsung - 55" QLED - Q6F Series Smart TV - 4K UHD TV with HDR 
+                                <br>90% new - Purchased on May 2018
+                                <br>*Free TV Stand                            </td>
+                            <td><a href="https://www.samsung.com/us/televisions-home-theater/tvs/qled-4k-tvs/55-class-q6f-4k-smart-qled-tv-2018-qn55q6fnafxza/">Click here</a></td>
+                            <td>USD 1,099.99</td>
+                            <td class="red">USD 499</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                                <td>3</td>
+                                <td><div align="center"><a href="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/2073738_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$ "
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/8/optimized/2073738_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                    " width="200px"><br>
+                                [click to Enlarge Photo]</a>
+                                  <a href="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2073755_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$"
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2073755_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                    " width="200px"><br>
+                                  [click to Enlarge Photo]</a> </div></td>
+                                    <td>[ Fabric Sofa + Ottoman ]
+                                        <br>Radley 86" Fabric Sofa - Color: Heavenly Mocha Grey (Created for Macy's) 
+                                        
+                                        <br>
+                                        <br>Original Price : US$1,328
+                                        <br>- Sofa : US$ 999 + Fabric Ottoman: US$ 329
+                                        <br>
+                                        <br>90% new - Purchased on May 2018                                    </td>
+                                    <td><a href="https://www.macys.com/shop/product/radley-86-fabric-sofa-created-for-macys?ID=1433999&tdp=cm_app~zMCOM-NAVAPP~xcm_zone~zPDP_ZONE_B~xcm_choiceId~zcidM06MAT-f2d97c09-086e-4633-a7d7-b3d4ee4f4346%40H8%40customers%2Balso%2Bloved%2429391%241433999~xcm_pos~zPos2~xcm_srcCatID~z29391">Click here</a></td>
+                                    <td>US$ 1,328</td>
+                                    <td class="red"> USD 399</td>
+                                                    <td><input type="checkbox"></td>                           
+                                </tr>
+                                <td>4</td>
+                                <td><div align="center"><a href="https://slimages.macysassets.com/is/image/MCY/products/3/optimized/9258593_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" 
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/3/optimized/9258593_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                    " width="200px"><br>
+                                [click to Enlarge Photo]</a> </div></td>
+                                    <td>[ Dining Table + 6 Chairs ]
+                                        <br>Gatlin Dining Furniture, 7-Pc. Set (Dining Table, Blue & Charcoal Dining Chairs), Created for Macy's
+                                        <br>90% new - Purchased on May 2018                                    </td>
+                                    <td><a href="https://www.macys.com/shop/product/gatlin-dining-furniture-7-pc.-set-dining-table-blue-charcoal-dining-chairs-created-for-macys?ID=5790927">Click here</a></td>
+                                    <td>USD 1,943</td>
+                                    <td class="red">USD 399</td>
+                
+                      
+                                      <input type="checkbox">
+                                    <td>&nbsp;</td>
+                                </tr>
 
-  </body>
+
+
+                                <td>5</td>
+                                <td><div align="center"><a href="https://slimages.macysassets.com/is/image/MCY/products/4/optimized/3877954_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" 
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/4/optimized/3877954_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                    " width="200px"><br>
+                                [click to Enlarge Photo]</a>
+                                  <a href="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/8008605_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" 
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/8008605_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                        " width="200px"><br>
+                                  [click to Enlarge Photo]</a>
+                                </div>
+                                <td>[ Night Stand ]
+                                        <br>Tribeca Grey Nightstand, Created for Macy's
+                                        <br>90% new - Purchased on May 2018
+                                        <br> Qty: 2                                    </td>
+                                    <td><a href="https://www.macys.com/shop/product/tribeca-grey-nightstand-created-for-macys?ID=2979858&CategoryID=29391&cm_kws=2366128">Click here</a></td>
+                                    <td>USD 249</td>
+                                    <td class="red">USD 99</td>
+                
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                                <td>6</td>
+                                <td><div align="center"><a href="https://slimages.macysassets.com/is/image/MCY/products/3/optimized/3877903_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" 
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/3/optimized/3877903_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                    " width="200px"><br>
+                                [click to Enlarge Photo]</a>
+                                  <a href="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/8008605_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$" 
+                                    target="_blank"> <img src="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/8008605_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$
+                                        " width="200px"><br>
+                                  [click to Enlarge Photo]</a>
+                                </div>
+                                <td>[ Drawer Dresser ]
+                                        <br>Tribeca Grey 7 Drawer Dresser, Created for Macy's
+                                        <br>90% new - Purchased on May 2018
+                                        <br> Qty: 1                                    </td>
+                                    <td><a href="https://www.macys.com/shop/product/tribeca-grey-7-drawer-dresser-created-for-macys?ID=2979855&tdp=cm_app~zMCOM-NAVAPP~xcm_zone~zPDP_ZONE_B~xcm_choiceId~zcidM06MAT-55b95a3d-2447-4976-b3cc-9a2e33850185%40H8%40customers%2Balso%2Bloved%2429391%242979855~xcm_pos~zPos2~xcm_srcCatID~z29391">Click here</a></td>
+                                    <td>USD 799</td>
+                                    <td class="red">USD 199</td>
+                
+                                    <td><input type="checkbox"></td>
+                                </tr>
+
+                                <td>7</td>
+                                <td><div align="center"><a href="https://www.staples-3p.com/s7/is/image/Staples/s0659059_sc7?wid=512&hei=512" 
+                                    target="_blank"> <img src="https://www.staples-3p.com/s7/is/image/Staples/s0659059_sc7?wid=512&hei=512
+                                    " width="200px"><br>
+                                [click to Enlarge Photo]</a>
+                                </div>
+                                <td>[ Desk ]
+                                        <br>Corner Computer Desk
+                                        <br>(Purchased on May 2018)                                    </td>
+                                    <td><a href="https://www.staples.com/Easy2Go-Corner-Computer-Desk-Resort-Cherry/product_952543">Click here</a></td>
+                                    <td>USD 89.99</td>
+                                    <td class="red">USD 39</td>
+               
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                                <td>8</td>
+                                <td><div align="center"><a href="https://www.staples-3p.com/s7/is/image/Staples/s0562369_sc7?wid=512&hei=512" target="_blank"> 
+                                  <img src="https://www.staples-3p.com/s7/is/image/Staples/s0562369_sc7?wid=512&hei=512
+                                    " width="200px"><br>
+                                  [click to Enlarge Photo]</a>
+                                </div>
+                                <td>
+                                        <br>Staples Hyken Technical Mesh Task Chair, Black
+                                        <br>(Purchased on May 2018)                                    </td>
+                                    <td><a href="https://www.staples.com/Staples-Hyken-Technical-Mesh-Task-Chair-Black/product_990119">Click here</a></td>
+                                    <td>USD 229.99</td>
+                                    <td class="red">USD 99</td>
+                
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                                                                
+                    </tbody>
+    </table>
+    
+</body>
 </html>
+
+
+Arlo Pro 2 Smart Security System with 6 Cameras (VMS4630P)
+
+
+
+
+https://www.arlo.com/en-us/products/arlo-pro-2/default.aspx
